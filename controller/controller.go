@@ -3,6 +3,7 @@ package controller
 import (
 	"context"
 	"encoding/json"
+	"log"
 	"net/http"
 	"remainder_app_2/model"
 	"remainder_app_2/services"
@@ -40,5 +41,6 @@ func Findtmrevents(response http.ResponseWriter, request *http.Request) {
 		response.Write([]byte(`{ "message": "` + err.Error() + `" }`))
 		return
 	}
+	log.Print("function called")
 	json.NewEncoder(response).Encode(events)
 }
